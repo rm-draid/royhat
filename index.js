@@ -56,8 +56,8 @@ function addTask() {
   } else {
     const newTask = { id: Date.now(), text: taskText, completed: false };
     tasks.push(newTask);
-    taskInput.value = ""; // Inputni tozalash
-    saveTasks(); // localStorage-ga saqlash
+    taskInput.value = ""; 
+    saveTasks();
     renderTasks();
   }
 }
@@ -65,7 +65,7 @@ function addTask() {
 function toggleComplete(id) {
   const task = tasks.find((task) => task.id === id);
   task.completed = !task.completed;
-  saveTasks(); // O'zgartirishlarni saqlash
+  saveTasks(); 
   renderTasks();
 }
 
@@ -73,10 +73,9 @@ function deleteTask(id) {
   if (confirm("Malumotni ochirb tashlamoqchisiz")) {
     const taskIndex = tasks.findIndex((task) => task.id === id);
     tasks.splice(taskIndex, 1);
-    saveTasks(); // O'chirishni saqlash
+    saveTasks(); 
     renderTasks();
   }
 }
 
-// Sahifa yuklanganda localStorage'dan yuklash
 renderTasks();
